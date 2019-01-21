@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bebosson <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: artderva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 18:34:47 by bebosson          #+#    #+#             */
-/*   Updated: 2018/11/20 19:02:07 by bebosson         ###   ########.fr       */
+/*   Created: 2018/11/18 17:13:18 by artderva          #+#    #+#             */
+/*   Updated: 2018/11/20 17:30:04 by artderva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	t_list	*lstnew;
+	t_list	*new;
 
-	if (!(lstnew = (t_list*)malloc(sizeof(t_list))))
-		return (0);
+	if (!(new = (t_list *)malloc(sizeof(t_list))))
+		return (NULL);
 	if (!content)
 	{
-		lstnew->content = NULL;
-		lstnew->content_size = 0;
+		new->content = NULL;
+		new->content_size = 0;
+		new->next = NULL;
 	}
 	else
 	{
-		lstnew->content = ft_strdup(content);
-		lstnew->content_size = content_size;
+		new->content = ft_memalloc(content_size);
+		ft_memcpy(new->content, content, content_size);
+		new->content_size = content_size;
+		new->next = NULL;
 	}
-	lstnew->next = NULL;
-	return (lstnew);
+	return (new);
 }

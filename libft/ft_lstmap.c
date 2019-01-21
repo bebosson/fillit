@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bebosson <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: artderva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/21 20:41:15 by bebosson          #+#    #+#             */
-/*   Updated: 2018/11/22 14:38:10 by bebosson         ###   ########.fr       */
+/*   Created: 2018/11/19 16:18:14 by artderva          #+#    #+#             */
+/*   Updated: 2018/11/19 18:42:33 by artderva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list *new;
-	t_list *tmp;
-	t_list *res;
+	t_list	*res;
+	t_list	*new;
+	t_list	*tmp;
 
 	if (!lst || !f)
 		return (NULL);

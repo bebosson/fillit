@@ -3,39 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bebosson <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: artderva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/15 16:02:27 by bebosson          #+#    #+#             */
-/*   Updated: 2018/11/15 19:24:06 by bebosson         ###   ########.fr       */
+/*   Created: 2018/11/14 17:58:56 by artderva          #+#    #+#             */
+/*   Updated: 2018/11/21 19:53:48 by artderva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+static int		len(int nbr)
 {
-	int		dec;
-	int		nbr;
-	char	*str_nbr;
+	int n;
 
-	nbr = (n < 0) ? -n : n;
-	dec = (n <= 0) ? 1 : 0;
-	if (n < -2147483647)
-		return (ft_strdup("-2147483648"));
+	n = 0;
+	if (nbr < 0)
+	{
+		nbr *= -1;
+		n++;
+	}
 	while (nbr > 0)
 	{
+		n++;
 		nbr /= 10;
-		dec++;
 	}
-	if (!(str_nbr = ft_strnew(dec)))
-		return (0);
-	nbr = (n < 0) ? -n : n;
-	while (--dec > -1)
+	return (n);
+}
+
+char			*ft_itoa(int n)
+{
+	char	*str;
+	int		k;
+
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	k = len(n);
+	if (!(str = (char *)malloc(sizeof(char) * k + 1)))
+		return (NULL);
+	str[0] = '-';
+	str[k] = '\0';
+	n = n < 0 ? -n : n;
+	while (n > 0)
 	{
-		str_nbr[dec] = nbr % 10 + '0';
-		nbr /= 10;
+		str[k - 1] = n % 10 + 48;
+		n = n / 10;
+		k--;
 	}
-	if (n < 0)
-		str_nbr[0] = '-';
-	return (str_nbr);
+	return (str);
 }

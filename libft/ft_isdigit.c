@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bebosson <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: artderva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 18:15:39 by bebosson          #+#    #+#             */
-/*   Updated: 2018/11/24 16:11:57 by bebosson         ###   ########.fr       */
+/*   Created: 2018/11/08 20:07:00 by artderva          #+#    #+#             */
+/*   Updated: 2018/11/26 20:44:28 by artderva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 int	ft_isdigit(int c)
 {
-	if (IS_NUM(c))
-		return (1);
-	else
-		return (0);
+	return (c >= 48 && c <= 57);
 }

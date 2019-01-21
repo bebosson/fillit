@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bebosson <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: artderva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/15 19:34:54 by bebosson          #+#    #+#             */
-/*   Updated: 2018/11/15 19:37:19 by bebosson         ###   ########.fr       */
+/*   Created: 2018/11/14 21:02:47 by artderva          #+#    #+#             */
+/*   Updated: 2018/11/14 21:04:48 by artderva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_putendl_fd(char const *s, int fd)
 {
 	ft_putstr_fd(s, fd);
-	ft_putstr_fd("\n", fd);
+	ft_putchar_fd('\n', fd);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bebosson <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: artderva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/21 20:12:16 by bebosson          #+#    #+#             */
-/*   Updated: 2018/11/24 16:11:37 by bebosson         ###   ########.fr       */
+/*   Created: 2018/11/20 18:45:54 by artderva          #+#    #+#             */
+/*   Updated: 2018/11/26 20:44:45 by artderva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 int	ft_islower(int c)
 {
-	if (IS_LOW(c))
-		return (1);
-	else
-		return (0);
+	return (c >= 97 && c <= 122);
 }
